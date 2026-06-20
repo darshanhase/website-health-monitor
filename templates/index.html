@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website Health Monitor</title>
+</head>
+<body>
+    <h1>Website Health Monitor</h1>
+    <form method="POST">
+        <label>Enter Website URL:</label>
+        <input type="text" name="url" placeholder="https://example.com" required>
+        <button type="submit">Check</button>
+    </form>
+
+    {% if result %}
+        <h2>Current Result</h2>
+        <p>URL: {{ result.url }}</p>
+        <p>Status: {{ result.status }}</p>
+        <p>Latency: {{ result.latency }} ms</p>
+    {% endif %}
+
+    <p><a href="{{ url_for('history') }}">View History</a></p>
+</body>
+</html>
